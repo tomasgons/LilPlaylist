@@ -1,6 +1,6 @@
 import firebase from "firebase";
 const config = {
-  apiKey: "",
+  apiKey: "AIzaSyB1aBvfUQBjcO77JTd-EIZ5kVumX6YvQLg",
   authDomain: "playlist-33aff.firebaseapp.com",
   databaseURL: "https://playlist-33aff.firebaseio.com",
   projectId: "playlist-33aff",

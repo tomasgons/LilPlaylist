@@ -68,82 +68,89 @@ class App extends Component {
       <div className="app">
         <header>
           <div className="header">
-            <h1>List of Fire</h1>
+            <h1>Playlist</h1>
           </div>
         </header>
-        <div className="container">
-          <section className="add-item">
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="text"
-                name="songName"
-                placeholder="Song"
-                onChange={this.handleChange}
-                value={this.state.songName}
-              />
-              <input
-                type="text"
-                name="artistName"
-                placeholder="Artist"
-                onChange={this.handleChange}
-                value={this.state.artistName}
-              />
+        <div class="wrapper">
+          <ul className="container">
+            <section className="add-item">
+              <li id="addsong">
+                <form onSubmit={this.handleSubmit}>
+                  <span>
+                    <input
+                      type="text"
+                      name="songName"
+                      placeholder="Song"
+                      onChange={this.handleChange}
+                      value={this.state.songName}
+                    />
+                  </span>
+                  <span>
+                    <input
+                      type="text"
+                      name="artistName"
+                      placeholder="Artist"
+                      onChange={this.handleChange}
+                      value={this.state.artistName}
+                    />
+                  </span>
+                  <span>
+                    <select
+                      type="text"
+                      name="genre"
+                      placeholder="Genre"
+                      onChange={this.handleChange}
+                      value={this.state.genre}
+                    >
+                      <option value="">Genre</option>
+                      <option value="Rock">Rock</option>
+                      <option value="Blues">Blues</option>
+                      <option value="Jazz">Jazz</option>
+                      <option value="HipHop">HipHop</option>
+                      <option value="Pop">Pop</option>
+                    </select>
+                  </span>
+                  <span>
+                    <select
+                      type="text"
+                      name="rating"
+                      placeholder="Rating"
+                      onChange={this.handleChange}
+                      value={this.state.rating}
+                    >
+                      <option value="">Rating</option>
+                      <option value="★★★★★">★★★★★</option>
+                      <option value="★★★★☆">★★★★☆</option>
+                      <option value="★★★☆☆">★★★☆☆</option>
+                      <option value="★★☆☆☆">★★☆☆☆</option>
+                      <option value="★☆☆☆☆">★☆☆☆☆</option>
+                    </select>
+                  </span>
+                  <button>Add Song</button>
+                </form>
+              </li>
+            </section>
 
-              <select
-                type="text"
-                name="genre"
-                placeholder="Genre"
-                onChange={this.handleChange}
-                value={this.state.genre}
-              >
-                <option value="">Genre</option>
-                <option value="Rock">Rock</option>
-                <option value="Blues">Blues</option>
-                <option value="Jazz">Jazz</option>
-                <option value="HipHop">HipHop</option>
-                <option value="Pop">Pop</option>
-              </select>
-              <select
-                type="text"
-                name="rating"
-                placeholder="Rating"
-                onChange={this.handleChange}
-                value={this.state.rating}
-              >
-                <option value="">Rating</option>
-                <option value="★★★★★">★★★★★</option>
-                <option value="★★★★☆">★★★★☆</option>
-                <option value="★★★☆☆">★★★☆☆</option>
-                <option value="★★☆☆☆">★★☆☆☆</option>
-                <option value="★☆☆☆☆">★☆☆☆☆</option>
-              </select>
-              <button>Add Song</button>
-            </form>
-          </section>
-
-          <section className="display-item">
-            <div className="wrapper">
+            <section className="display-item">
               <ul>
-                <ul>
-                  {this.state.items.map(item => {
-                    return (
-                      <li key={item.id}>
-                        <p>Song: {item.songName}</p>
-                        <p>Artist: {item.artistName}</p>
-                        <p>Genre: {item.genre}</p>
-                        <p>Rating: {item.rating}</p>
-                        <p>
-                          <button onClick={() => this.removeItem(item.id)}>
-                            Delete Song
-                          </button>
-                        </p>
-                      </li>
-                    );
-                  })}
-                </ul>
+                {this.state.items.map(item => {
+                  return (
+                    <li key={item.id}>
+                      <span> {item.songName}</span>
+                      <span>Artist: {item.artistName}</span>
+                      <span>Genre: {item.genre}</span>
+                      <span>Rating: {item.rating}</span>
+                      <span>
+                        <button onClick={() => this.removeItem(item.id)}>
+                          Delete Song
+                        </button>
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
-            </div>
-          </section>
+            </section>
+          </ul>
         </div>
       </div>
     );
